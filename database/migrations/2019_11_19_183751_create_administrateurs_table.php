@@ -15,6 +15,8 @@ class CreateAdministrateursTable extends Migration
     {
         Schema::create('administrateurs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('type');
+            $table->string('profession');
             $table->timestamps();
         });
     }
