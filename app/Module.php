@@ -8,8 +8,8 @@ class Module extends Model
 {
     //
     /*les attributs de la classe modèle module */
-    protected $code;
-    protected $coefficient;
-    protected $credit;
-    protected $semestre;
+
+    protected $fillable = [
+        'code','coefficient','credit','semestre',
+    ];
 }

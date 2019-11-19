@@ -8,7 +8,7 @@ class Professeur extends User
 {
     //
     /*les attributs de la classe modèle professeur*/
-    protected $grade;
-    protected $specialites;
-    protected $diplomes;
+    protected $fillable = [
+        'grade','specialites','diplomes',
+    ];
 }

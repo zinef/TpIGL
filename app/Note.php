@@ -8,8 +8,8 @@ class Note extends Model
 {
     //
     /*les attributs de la classe modèle note*/
-    protected $moyenne;
-    protected $ci;
-    protected $cc;
-    protected $cf;
+
+    protected $fillable = [
+        'moyenne','ci','cc','cf',
+    ];
 }

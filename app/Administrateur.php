@@ -8,6 +8,8 @@ class Administrateur extends User
 {
     //
     /*les attributs de la classe modèle administrateur*/
-    protected $type;
-    protected $profession;
+
+    protected $fillable = [
+        'type','profession',
+    ];
 }

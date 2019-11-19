@@ -8,6 +8,9 @@ class Etudiant extends User
 {
     //
     /* Les attributs de la classe modèle etudiant*/
-    protected $matricule;
+    
+    protected $fillable = [
+        'matricule',
+    ];
 
 }
