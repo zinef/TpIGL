@@ -12,4 +12,10 @@ class Module extends Model
     protected $fillable = [
         'code','coefficient','credit','semestre',
     ];
+
+    /*les methodes de creation de relation entre les classes modèles*/
+   /* public function professeurs(){
+        return $this->hasMany("app/Professeur");
+    }*/
+
 }

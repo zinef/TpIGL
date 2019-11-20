@@ -14,8 +14,8 @@ class Etudiant extends User
     ];
 
     /* les methodes de creation de relation entre les tables (integrités)*/
-    public function modules(){
-        return $this->belongsToMany('/app/Module');
+    /*public function modules(){
+        return $this->hasMany('/app/Module');
     }
 
     public function professeurs(){
@@ -29,5 +29,5 @@ class Etudiant extends User
     }
     public function absences(){
         return $this->hasMany('/app/Absence');
-    }
+    }*/
 }

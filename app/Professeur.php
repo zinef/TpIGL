@@ -13,7 +13,7 @@ class Professeur extends User
     ];
 
     /*les methodes de creation des relations entre les autres modèles */ 
-    public function etudiants(){
+    /*public function etudiants(){
         return $this-> hasMany("app/Etudiant");
     }
 
@@ -23,7 +23,7 @@ class Professeur extends User
 
     public function groupes(){
         return $this->hasMany("app/Groupe");
-    }
+    }*/
 
-    
+
 }

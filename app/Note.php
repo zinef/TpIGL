@@ -12,4 +12,14 @@ class Note extends Model
     protected $fillable = [
         'moyenne','ci','cc','cf',
     ];
+
+    /* les methodes de creation de relation entre les */
+   /* public function etudiant() {
+        return $this->hasOne("app/Etudiant");
+    }
+    public function module(){
+        return $this->hasOne('app/Module');
+    }*/
+
 }
+
