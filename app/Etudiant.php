@@ -14,20 +14,20 @@ class Etudiant extends User
     ];
 
     /* les methodes de creation de relation entre les tables (integrités)*/
-    /*public function modules(){
-        return $this->hasMany('/app/Module');
+    public function modules(){
+        return $this->belongsToMany('App/Module');
     }
 
     public function professeurs(){
-        return $this->hasMany('/app/Professeur');
+        return $this->belongsToMany('App/Professeur');
     }
-    public function group(){
-        return $this->belongsTo('/app/Groupe');
+    public function groupes(){
+        return $this->belongsTo('App/Groupe');
     }
     public function notes(){
-        return $this->hasMany('/app/Note');
+        return $this->hasMany('App/Note');
     }
     public function absences(){
-        return $this->hasMany('/app/Absence');
-    }*/
+        return $this->hasMany('App/Absence');
+    }
 }

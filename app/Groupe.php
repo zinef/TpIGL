@@ -16,8 +16,8 @@ class Groupe extends Model
      * les methodes de creation de relations entre les modèles
      */
 
-     /*public function etudiants(){
-         return $this->hasMany("app/Etudiant");
-     } */
+     public function etudiants(){
+         return $this->hasMany("App/Etudiant");
+     } 
 
 }

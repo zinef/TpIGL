@@ -14,12 +14,12 @@ class Note extends Model
     ];
 
     /* les methodes de creation de relation entre les */
-   /* public function etudiant() {
-        return $this->hasOne("app/Etudiant");
+    public function etudiant() {
+        return $this->belongsTo("App/Etudiant");
     }
     public function module(){
-        return $this->hasOne('app/Module');
-    }*/
+        return $this->belongsTo('App/Module');
+    }
 
 }
 

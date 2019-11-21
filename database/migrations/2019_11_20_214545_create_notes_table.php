@@ -15,10 +15,14 @@ class CreateNotesTable extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float(moyenne);
-            $table->float(ci);
-            $table->float(cc);
-            $table->float(cf);
+            $table->float('moyenne');
+            $table->float('ci');
+            $table->float('cc');
+            $table->float('cf');
+            $table->bigInteger('etudiant_id')->unsigned()->nullable();
+            $table->foreign('etudiant_id')->references('id')->on('etudiants');
+            $table->unsignedBigInteger("module_id")->nullable();
+            $table->foreign('module_id')->references('id')->on('modules');
             $table->timestamps();
         });
     }

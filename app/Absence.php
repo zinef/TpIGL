@@ -15,8 +15,8 @@ class Absence extends Model
      * les methodes de generation des liens entres les tables
      */
 
-    /* public function etudiant(){
-         return $this->hasOne("app/Etudiant");
-     }*/
+    public function etudiant(){
+         return $this->belongsTo("App/Etudiant");
+     }
 
 }

@@ -13,17 +13,17 @@ class Professeur extends User
     ];
 
     /*les methodes de creation des relations entre les autres modèles */ 
-    /*public function etudiants(){
-        return $this-> hasMany("app/Etudiant");
+    public function etudiants(){
+        return $this-> belongsToMany("App/Etudiant");
     }
 
     public function modules(){
-        return $this->hasMany("app/Module");
+        return $this->hasMany("App/Module");
     }
 
     public function groupes(){
-        return $this->hasMany("app/Groupe");
-    }*/
+        return $this->hasMany("App/Groupe");
+    }
 
 
 }

@@ -16,6 +16,9 @@ class CreateEtudiantsTable extends Migration
         Schema::create('etudiants', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('matricule');
+            $table->string('niveau');
+            $table->unsignedBigInteger('groupe_id')->nullable();
+            $table->foreign('groupe_id')->references('id')->on('groupes');
             $table->timestamps();
         });
     }
