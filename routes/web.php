@@ -12,5 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "welcome";
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+/*Route::post ('/register',function(){
+    $user = new App\user ;
+    $user -> telephone=request('telephone') ;  
+    $user -> surname=request('surname') ;
+  $user -> name=request('name') ;
+  $user -> email=request('email') ;
+    $user -> adresse=request('adresse') ;
+
+    $user -> dateDeNaissance=request('date') ;
+    $user -> nationalite=request('nationalite') ;
+    $user -> password=request('password') ;
+    $user -> save() ;
+});*/
