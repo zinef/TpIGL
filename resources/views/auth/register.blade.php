@@ -26,6 +26,88 @@
                         </div>
 
                         <div class="form-group row">
+<<<<<<< HEAD
+=======
+                            <label for="Surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Surname" type="text" class="form-control @error('name') is-invalid @enderror" name="Surname" value="{{ old('Surname') }}" required autocomplete="Surname" autofocus>
+
+                                @error('Surname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+
+
+
+
+                       
+
+                        <div class="form-group row">
+                            <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date de Naissance') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="date" type="date"  max="1994-12-31" class="form-control @error('date') is-invalid @enderror" name="date" required autocomplete="date">
+
+                                @error('date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="telephone" class="col-md-4 col-form-label text-md-right">{{ __('Numero de Telephone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="telephone" type="tel"  class="form-control @error('telephone') is-invalid @enderror" name="telephone" required autocomplete="telephone">
+
+                                @error('telephone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Adresse" class="col-md-4 col-form-label text-md-right">{{ __('Adresse') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Adresse" type="text" class="form-control @error('Adresse') is-invalid @enderror" name="Adresse" value="{{ old('Adresse') }}" required autocomplete="Adresse" autofocus>
+
+                                @error('Adresse')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="Nationalite" class="col-md-4 col-form-label text-md-right">{{ __('Nationalite') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Nationalite" type="text" class="form-control @error('Nationalite') is-invalid @enderror" name="Nationalite" value="{{ old('Nationalite') }}" required autocomplete="Nationalite" autofocus>
+
+                                @error('Nationalite')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+>>>>>>> e380a531899a7a19373b54cd37929c000cc0bee7
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
