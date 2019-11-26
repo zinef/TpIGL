@@ -27,6 +27,7 @@ class Etudiant extends User
     public function notes(){
         return $this->hasMany('App/Note');
     }
+    
     public function absences(){
         return $this->hasMany('App/Absence');
     }

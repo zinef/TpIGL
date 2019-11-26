@@ -12,10 +12,16 @@
 */
 
 Route::get('/', function () {
-    return "welcome";
+    return view("welcome");
 });
 
 Auth::routes();
+Route:: get ('/saisirnotes/{id}',function($id){
+return view('SaisirNotes',['id' => $id]) ;
+});
+
+Route::post('/saisirnotes/{id}', 'ProfesseurController@ajouterNote')->name('saisirnotes');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 /*Route::post ('/register',function(){
@@ -31,3 +37,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     $user -> password=request('password') ;
     $user -> save() ;
 });*/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
