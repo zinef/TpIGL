@@ -15,7 +15,7 @@
                             <label for="ci" class="col-md-4 col-form-label text-md-right">{{ __('CI') }}</label>
 
                             <div class="col-md-6">
-                                <input id="ci" type="text" class="form-control @error('ci') is-invalid @enderror" name="ci" value="{{ old('ci') }}" required autocomplete="ci" autofocus>
+                                <input id="ci" type="number" min="0" max="20" class="form-control @error('ci') is-invalid @enderror" name="ci" value="{{ old('ci') }}" required autocomplete="ci" autofocus>
 
                                 @error('ci')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <label for="cc" class="col-md-4 col-form-label text-md-right">{{ __('CC') }}</label>
 
                             <div class="col-md-6">
-                                <input id="cc" type="text" class="form-control @error('cc') is-invalid @enderror" name="cc" value="{{ old('cc') }}" required autocomplete="cc" autofocus>
+                                <input id="cc" type="number" min="0" max="20" class="form-control @error('cc') is-invalid @enderror" name="cc" value="{{ old('cc') }}" required autocomplete="cc" autofocus>
 
                                 @error('cc')
                                     <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
                             <label for="cf" class="col-md-4 col-form-label text-md-right">{{ __('CF') }}</label>
 
                             <div class="col-md-6">
-                                <input id="cf" type="text"  class="form-control @error('cf') is-invalid @enderror" name="cf" required autocomplete="cf">
+                                <input id="cf" type="number"  min="0" max="20"  class="form-control @error('cf') is-invalid @enderror" name="cf" required autocomplete="cf">
 
                                 @error('cf')
                                     <span class="invalid-feedback" role="alert">

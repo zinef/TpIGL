@@ -14,10 +14,7 @@
 Route::get('/', function () {
     return view("welcome");
 });
-Route::get('/lolo', function () {
-  return view("hey");
-});
-Route::get('/liste', 'ProfesseurController@lol')->name('liste');
+
 
 Auth::routes();
 Route:: get ('/saisirnotes/{id}',function($id){
@@ -26,7 +23,7 @@ return view('SaisirNotes',['id' => $id]) ;
 
 Route::post('/saisirnotes/{id}', 'ProfesseurController@ajouterNote')->name('saisirnotes');
 
-
+Route::get('/liste', 'ProfesseurController@index')->name('liste');
 Route::get('/home', 'HomeController@index')->name('home');
 /*Route::post ('/register',function(){
     $user = new App\user ;
@@ -42,6 +39,3 @@ Route::get('/home', 'HomeController@index')->name('home');
     $user -> save() ;
 });*/
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

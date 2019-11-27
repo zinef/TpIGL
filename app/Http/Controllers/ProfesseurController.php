@@ -18,9 +18,9 @@ class ProfesseurController extends Controller
         $note -> save() ;
         return redirect('/') ;
     }
-    public function lol(){
+    public function index(){
         $listetudiant=Etudiant::all() ;
-        return view('lol',['etudiant'=>$listetudiant]) ;
+        return view('index',['etudiant'=>$listetudiant]) ;
     }
 
 
