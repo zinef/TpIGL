@@ -26,14 +26,12 @@
                         </div>
 
                         <div class="form-group row">
-<<<<<<< HEAD
-=======
-                            <label for="Surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('surname') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Surname" type="text" class="form-control @error('name') is-invalid @enderror" name="Surname" value="{{ old('Surname') }}" required autocomplete="Surname" autofocus>
+                                <input id="surname" type="text" class="form-control @error('name') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
-                                @error('Surname')
+                                @error('surname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -107,7 +105,6 @@
                         </div>
 
                         <div class="form-group row">
->>>>>>> e380a531899a7a19373b54cd37929c000cc0bee7
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
