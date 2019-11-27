@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view("welcome");
 });
+Route::get('/lolo', function () {
+  return view("hey");
+});
+Route::get('/liste', 'ProfesseurController@lol')->name('liste');
 
 Auth::routes();
 Route:: get ('/saisirnotes/{id}',function($id){

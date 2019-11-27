@@ -4,20 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Note ;
+use App\Etudiant ;
 class ProfesseurController extends Controller
 {
    public function ajouterNote($id){
          $note = new Note() ; 
-        //$note -> etudiant_id = id ;
         $note -> ci= request('ci') ;
         $note -> cf= request('cf') ;
         $note -> cc= request('cc') ;
         $note->etudiant_id = $id;
+        $note-> moyenne = (($note -> ci) +($note -> cc) +2*($note -> cf))/4 ;
 
         $note -> save() ;
         return redirect('/') ;
     }
-
+    public function lol(){
+        $listetudiant=Etudiant::all() ;
+        return view('lol',['etudiant'=>$listetudiant]) ;
+    }
 
 
 
