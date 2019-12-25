@@ -23,25 +23,25 @@ export default class D extends Component {
 
   handleSubmit(event) {
     const { email, password } = this.state;
+    console.log("here I am");
     console.log({
-      user: {
+      
         email: email,
         password: password
-      }
+      
     });
 
     axios.post(
         "/a",
-        {
-          user: {
+      
+          {
             email: email,
             password: password
           }
-        }
+        
       )
       .then(response => {
-        console.log("this is response");
-        console.log(response);
+        
         // reste a affichage des erreur de auth
        
       
@@ -61,7 +61,7 @@ export default class D extends Component {
           <input
             type="email"
             name="email"
-            
+            for="email"
             className="form-control"  
             aria-describedby="emailHelp" 
             placeholder="Enter email"
@@ -75,6 +75,7 @@ export default class D extends Component {
             <input
               type="password"
               name="password"
+              for="password"
               placeholder="Password"
               className="form-control"
               value={this.state.password}
