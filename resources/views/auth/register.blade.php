@@ -26,17 +26,10 @@
                         </div>
 
                         <div class="form-group row">
-<<<<<<< HEAD
-                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('surname') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="surname" type="text" class="form-control @error('name') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
-=======
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surame') }}</label>
 
                             <div class="col-md-6">
                                 <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
->>>>>>> bc5cd16741aa1d2126cc9ed7023e58c3e546872e
 
                                 @error('surname')
                                     <span class="invalid-feedback" role="alert">

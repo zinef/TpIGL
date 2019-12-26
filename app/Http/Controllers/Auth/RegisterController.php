@@ -70,7 +70,7 @@ class RegisterController extends Controller
     
     protected function create(array $data)
     {
-        return User::create([
+        $user= new  User([
             'name' => $data['name'],
             'surname' => $data['surname'],
             'telephone' => $data['telephone'],
@@ -80,6 +80,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $user->save();
+        /*récupération de l'id de l'utilisateur après la crèation pour l'affecter pour un etudiant ou un prof*/
+        $id = $user->id;
+        /*traitement des cas et remplissage des tables etudiant ou prof*/
     }
 
 }

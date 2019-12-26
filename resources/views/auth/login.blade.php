@@ -39,25 +39,9 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
-                        <div class="form-group row">
-                            <label for="telephone" class="col-md-4 col-form-label text-md-right">{{ __('telephone') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="telephone" type="telephone" class="form-control @error('telephone') is-invalid @enderror" name="telephone" required autocomplete="telephone">
-
-                                @error('telephone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-=======
 
 
 
->>>>>>> bc5cd16741aa1d2126cc9ed7023e58c3e546872e
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">

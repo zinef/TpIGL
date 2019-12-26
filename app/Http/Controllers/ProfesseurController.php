@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Note ;
 use App\User ;
 use App\Etudiant ;
+use App\Professeur;
 class ProfesseurController extends Controller
 {
+
+    /* les méthodes qui controllent l'affetation des notes*/
    public function ajouterNote($id){
          $note = new Note() ; 
         $note -> ci= request('ci') ;
@@ -26,12 +29,33 @@ class ProfesseurController extends Controller
     }
 
     public function create(Request $request){
-      dd ($request->all());
-      $user1=new User();
-      
-        $user1->email=request('email');
-       $user1->save();
-        
+     
+    }
+
+    /*les méthodes qui controllent l'affichage des information */
+
+    public function affichageInfos($id){
+       /* $user= Auth::user();
+        $id=$user->id;*/
+        //recherche dans la collone 'id' de la table professeur
+        $user=User::find($id);
+        $queryProfesseur=Professeur::find($id);
+        if (($queryProfesseur != null)&&($user != null)){
+            /*récuperer les données à afficher dans un tableau et les envoyer dans une vue */ 
+            $data=[
+                "identifiant"=> $user->identifiant,
+                "name"=> $user->name ,
+                "surname"=> $user->surname ,
+                "email"=> $user->email ,
+                "telephone"=> $user->telephone ,
+                "adresse"=> $user->adresse ,
+                "dateDeNaissance"=> $user->dateDeNaissance ,
+                "specialites"=> $queryProfesseur->specialites ,
+                "grade"=> $queryProfesseur->grade ,
+
+            ];
+            return $data;
+        }
     }
 
     
