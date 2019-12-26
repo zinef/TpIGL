@@ -26,10 +26,17 @@
                         </div>
 
                         <div class="form-group row">
+<<<<<<< HEAD
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('surname') }}</label>
 
                             <div class="col-md-6">
                                 <input id="surname" type="text" class="form-control @error('name') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+=======
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surame') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+>>>>>>> bc5cd16741aa1d2126cc9ed7023e58c3e546872e
 
                                 @error('surname')
                                     <span class="invalid-feedback" role="alert">
@@ -42,17 +49,15 @@
 
 
 
-
-
                        
 
                         <div class="form-group row">
                             <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date de Naissance') }}</label>
 
                             <div class="col-md-6">
-                                <input id="date" type="date"  max="1994-12-31" class="form-control @error('date') is-invalid @enderror" name="date" required autocomplete="date">
+                                <input id="dateDeNaissance" type="date"  max="1994-12-31" class="form-control @error('dateDeNaissance') is-invalid @enderror" name="dateDeNaissance" required autocomplete="dateDeNaissance">
 
-                                @error('date')
+                                @error('dateDeNaissance')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -76,12 +81,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="Adresse" class="col-md-4 col-form-label text-md-right">{{ __('Adresse') }}</label>
+                            <label for="adresse" class="col-md-4 col-form-label text-md-right">{{ __('Adresse') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Adresse" type="text" class="form-control @error('Adresse') is-invalid @enderror" name="Adresse" value="{{ old('Adresse') }}" required autocomplete="Adresse" autofocus>
+                                <input id="adresse" type="text"  class="form-control @error('adresse') is-invalid @enderror" name="adresse" required autocomplete="adresse">
 
-                                @error('Adresse')
+                                @error('adresse')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -91,19 +96,18 @@
 
 
                         <div class="form-group row">
-                            <label for="Nationalite" class="col-md-4 col-form-label text-md-right">{{ __('Nationalite') }}</label>
+                            <label for="nationalite" class="col-md-4 col-form-label text-md-right">{{ __('Nationalite') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Nationalite" type="text" class="form-control @error('Nationalite') is-invalid @enderror" name="Nationalite" value="{{ old('Nationalite') }}" required autocomplete="Nationalite" autofocus>
+                                <input id="nationalite" type="text"  class="form-control @error('nationalite') is-invalid @enderror" name="nationalite" required autocomplete="nationalite">
 
-                                @error('Nationalite')
+                                @error('nationalite')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 

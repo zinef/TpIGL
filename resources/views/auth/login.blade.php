@@ -39,6 +39,7 @@
                             </div>
                         </div>
 
+<<<<<<< HEAD
                         <div class="form-group row">
                             <label for="telephone" class="col-md-4 col-form-label text-md-right">{{ __('telephone') }}</label>
 
@@ -52,6 +53,11 @@
                                 @enderror
                             </div>
                         </div>
+=======
+
+
+
+>>>>>>> bc5cd16741aa1d2126cc9ed7023e58c3e546872e
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">

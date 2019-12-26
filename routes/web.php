@@ -1,5 +1,8 @@
 <?php
 
+
+use Illuminate\Http\Request;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +15,42 @@
 */
 
 Route::get('/', function () {
-    return "welcome";
+    return view("welcome");
 });
 
-Auth::routes();
 
+Auth::routes();
+Route:: get ('/saisirnotes/{id}',function($id){
+return view('SaisirNotes',['id' => $id]) ;
+});
+
+Route::post('/saisirnotes/{id}', 'ProfesseurController@ajouterNote')->name('saisirnotes');
+
+Route::get('/liste', 'ProfesseurController@index')->name('liste');
 Route::get('/home', 'HomeController@index')->name('home');
+/*Route::post ('/register',function(){
+    $user = new App\user ;
+    $user -> telephone=request('telephone') ;  
+    $user -> surname=request('surname') ;
+  $user -> name=request('name') ;
+  $user -> email=request('email') ;
+    $user -> adresse=request('adresse') ;
+
+    $user -> dateDeNaissance=request('date') ;
+    $user -> nationalite=request('nationalite') ;
+    $user -> password=request('password') ;
+    $user -> save() ;
+});*/
+
+Route::post('/a',function(Request $request){
+  $user= new App\User;
+  $user->email=$request->input('email');
+  $user->identifiant=$request->input('identifiant');
+
+  $user->save();
+  return redirect("/");
+    /*return $request->instance();*/
+});
+
+
+
