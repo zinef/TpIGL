@@ -12,7 +12,7 @@ class ProfesseurController extends Controller
 
     /* les méthodes qui controllent l'affetation des notes*/
    public function ajouterNote($id){
-         $note = new Note() ; 
+        $note = new Note() ; 
         $note -> ci= request('ci') ;
         $note -> cf= request('cf') ;
         $note -> cc= request('cc') ;
@@ -20,7 +20,7 @@ class ProfesseurController extends Controller
         $note-> moyenne = (($note -> ci) +($note -> cc) +2*($note -> cf))/4 ;
 
         $note -> save() ;
-        return redirect('/') ;
+        return redirect('/saisirNotes') ;
     }
     public function index($id){
 

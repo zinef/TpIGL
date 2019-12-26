@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Mockery;
@@ -26,10 +27,30 @@ class ProfesseurControllerTest extends TestCase
 
     //test de la methode ajouter note
     public function testAjouterNote(){
+        //céation de la  collection pour note
+        $collection = new Collection;
+        //remplissage de la collection
+        $collection->add((object)($ci=15.0));
+        $collection->add((object)($cf=15.0));
+        $collection->add((object)($cc=15.0));
+        $collection->add((object)($moyenne=15.0));
+        $collection->add((object)($etudiant_id=12));
 
-        //création du Mock1 pour la note
+        //création du Mock pour la note
         $mockNote= Mockery::mock('Note');
-        
+        $mockNote->shouldReceive('save')
+                 ->once()
+                 ->andReturn($collection);
+
+        //création  de lien entre le mock et le conteneur de laravel
+        $this->app->instance('Note',$mockNote);
+
+        //action que fait cette methode 
+        $response = $this->call('POST','/saisirnotes/{id}');
+
+        //Assertions
+        $this->assertResponseOk();
+        $this->assertViewIs('/saisirnotes');
     }
 
     //test de la méthode index
@@ -40,5 +61,11 @@ class ProfesseurControllerTest extends TestCase
     //test de la méthode affichageInfos
     public function testAffichageInfos(){
 
+    }
+
+    //la methode tearDown qui détruit le mock crée 
+    public function tearDown()
+    {
+        Mockery::close();
     }
 }
