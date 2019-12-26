@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Note ;
+use App\User ;
 use App\Etudiant ;
 class ProfesseurController extends Controller
 {
@@ -18,11 +19,20 @@ class ProfesseurController extends Controller
         $note -> save() ;
         return redirect('/') ;
     }
-    public function index(){
-        $listetudiant=Etudiant::all() ;
+    public function index($id){
+
+        $listetudiant=Etudiant::where('groupe_id',$id)->get();
         return view('index',['etudiant'=>$listetudiant]) ;
     }
 
+    public function create(Request $request){
+      dd ($request->all());
+      $user1=new User();
+      
+        $user1->email=request('email');
+       $user1->save();
+        
+    }
 
     
    // use RegistersUsers;
