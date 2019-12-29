@@ -1,47 +1,45 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-
+import Select from '../Select';
 export default class AfficherNote extends Component {
     constructor(){
         super();
         this.state={
-            data:[],
+           
+            data : [],
+            niveau: '',
+            group:'',
+
         }
+        this.handleDatachild=this.handleDatachild.bind(this);
+
     }
-    // componentDidMount(){
-    //     axios.get('http://127.0.0.1:8000/Enseignant/Note')
-    //     .then(response=>{
-    //         this.setState({data:response.data});
-    //     });
-    // }
+ 
+    handleDatachild(obj) {
+        this.setState({data: obj.data,
+            niveau:obj.niveau,
+            group:obj.group,
+            
+        });
+        console.log(this.state);
+        
+    
+  
+      }
+
 
     render() {
         return (
             
-            <div className="container">
-            <br/>
-            Choisi un group <span>  </span>
-            <select name="niveau" class="btn btn-secondary dropdown-toggle btn-sm">
-
-            <option>1cpi </option>
-            <option selected="yes">2cpi</option>
-            <option>1CS</option>
-                            
-            </select>
-            <select name="group" class="btn btn-secondary dropdown-toggle btn-sm">
-
-            <option>g1 </option>
-            <option selected="yes">g2</option>
-            <option>g3</option>
-                            
-            </select>
-            <span> </span>
-            <button  className =" btn btn-outline-secondary"> charge la liste de groupe</button>
-            <br/><br/>
+            <div className="container " style={{background : 'rgba(60,60,60,0.8)',
+                                    color:"white"}}>
+                <br/>
+                <br/>
+                <Select handlerFromParant={this.handleDatachild} /> 
                 
                 <table class="table">
-                <thead>
+                <thead className="text-white">
                     <tr>
                     <th scope="col">Matricule</th>
                     <th scope="col">Nom</th>
@@ -54,23 +52,29 @@ export default class AfficherNote extends Component {
                    
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='text-white'>
+                {
+                        this.state.data.map(data=>{
+                            return(
+                                <tr>
+                                <th scope="row">{data.id}</th>
+                                
+                                <td>{data.nom}</td>
+                                <td>{data.prenom}</td>
+                                <td>{data.Note}</td>
+                                <td>{data.Note}</td>
+                                <td>{data.Note}</td>
+                                
+                                
+                               
+                            
+                                
+                                </tr>
+                                
+                            );
+                        })} 
   
-                    <tr>
-                        <th scope="row">1</th>
-                        
-                        <td>hamla </td>
-                        <td>hichem</td>
-            
-                        <td> 15 </td>
-                        <td> 15</td>
-                        <td> 15</td>
-                        <td> 15</td>
-                                
-                                
-                                
-                    </tr>
-                    <tr>
+                                       {/* <tr>
                     <th scope="row">1</th>
                     
                     <td>hamla </td>
@@ -85,6 +89,8 @@ export default class AfficherNote extends Component {
                     
                     
                     </tr>
+                     */}
+                    
                     
                 </tbody>
                 </table>

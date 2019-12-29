@@ -1,117 +1,180 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Select from '../Select';
+import  './ens.css';
+
 
 export default class Note extends Component {
     constructor(){
         super();
         this.state={
-            data:[],
-            group:"",
-            niveau:""
+            data : [],
+            niveau: '',
+            group:'',
+
         }
+     
+        this.handleDatachild=this.handleDatachild.bind(this);
+        // this.chargerliste=this.chargerlist.bind(this);
     }
-
-    chargerliste(){ 
-        console.log("chager liste etudiant + value of group");
-       
-        this.setState({
-            data:[],
-            group:document.getElementById("group").value,
-            niveau :document.getElementById("niveau").value
-        });
-
-        console.log(this.state);
-
-
-        const { data , group , niveau}=this.state;
-
-       
-        axios.post('/a',
-        {
-            data:this.state
-        //   gn: {
-        //     group: group,
-        //     niveau: niveau,
-        //   }
+ // charger list de grop
+    chargerliste( ){ 
+        
+        console.log('charger liste de ');
+        console.log(this.state.niveau, );
+        axios.get('http://127.0.0.1:8000/Enseignant/Note',{
+            params:{
+                niveau: this.state.niveau,
+                group: this.state.group
+            }
         })
         .then(response=>{
-            //console.log(response);
-            // this.setState({data:response.data});
+            this.setState({data:response.data});
         });
+
+    }
+    getvalue(){
+        this.setState({niveau:document.getElementById("niveau").value});
+        console.log(this.state.niveau); 
+
+    }
+    recuperernote(){
+        let inputs, index;
+        let tab=[];
+        inputs = document.getElementsByClassName('envoyerNote');
+        for (index = 0; index < inputs.length; ++index) {
+            
+            tab.push({ id :inputs[index].id ,note :inputs[index].value});
+        }
+      //  this.setState({tabnote :tab},()=>{this.envoyernoteReq()});
+       var obj={
+           exam: document.getElementById('exam').value,
+           niveau:this.state.niveau,
+           group :this.state.group,
+           tabnote:tab
+       }
+        axios.post('/envoyerNote',obj)
+        .then(response=>{
+             
+        });
+        
+    }
+    envoyernote(){
+        this.recuperernote();
+        
+        
     }
 
+    
+    handleDatachild(obj) {
+        this.setState({data: obj.data,
+            niveau:obj.niveau,
+            group:obj.group,
+            
+        });
+        
+    
+  
+      }
+
+      
+    
     render() {
         return (
             
-            <div className="container">
+            <div className="container" style={{background : 'rgba(60,60,60,0.8)',
+            color:"white"}}>
             <br/>
             <br/>
-                      Choisi un group <span>  </span>
-                      <select name="niveau" id='niveau' class="btn btn-secondary dropdown-toggle btn-sm">
-
-                          <option>1cpi </option>
-                          <option selected="yes">2cpi</option>
-                          <option>1CS</option>
-                                      
-                      </select>
-                      <select  id='group'  >--------------------------------
-                          <option value='g1'>g1 </option>
-                          <option selected="yes" value='g2'>g2</option>
-                          <option value='g3'>g3</option>
-                                          
-                      </select>
-                      <span> </span>
-                      <button  className =" btn btn-outline-secondary"      
-                      
-                       onClick={()=>{this.chargerliste()}}
-
-                        > charge la liste de groupe</button>
-                      <br/><br/>
-
+               
+               <Select handlerFromParant={this.handleDatachild} /> 
                 <table class="table">
-                <thead>
+                <thead className='text-white'>
                     <tr>
                     <th scope="col">Matricule</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prenom</th>
                     <th scope="col">
-                            <select name="my_html_select_box" class="btn btn-secondary dropdown-toggle btn-sm">
-
-                            <option>CC </option>
-                            <option selected="yes">CI</option>
-                            <option>CF</option>
-
+                        <select  id='exam' style={{padding :'0px'}} className='btn btn-secondary dropdown-toggle btn-sm borderAng select mdfont btn-sm'
+                        >
+                            <option value="CC">CC</option>
+                            <option value="CI">CI</option>
+                            <option value="CF">CF</option>
                             </select>
-                           
+         
                     </th>
+        
                    
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='text-white'>
                     {
                         this.state.data.map(data=>{
                             return(
                                 <tr>
-                                <th scope="row">{data.id}</th>
+                                <th scope="row" key={data.id}>{data.id}</th>
                                 
                                 <td>{data.nom}</td>
                                 <td>{data.prenom}</td>
+                                <td>
+                                    <div class="input-group input-group-sm  "  style={{width:'2cm'}}>
+                                    <input type="text"  className="form-control form-control-sm envoyerNote"  id ={data.id} />
+                                        <div className="input-group-append">
+                                            
+                                            <span  className="input-group-text form-control-sm" >/20</span>
+                                        </div>
+                                    </div>
+                                </td>
                                 
-                                <td><input type="text"  /> </td>
-                                {/* <td><input type="text" name={dat.id} /> </td> */}
+                               
                             
                                 
+    
                                 </tr>
                                 
-                            )
-                        })
-                    }
+                            );
+                        })} 
+
+                        
+                      
+       
+
+
+                    
 
                    
+                
+               
+                {/* <tr>
+                                <th scope="row">170/16</th>
+                                 
+                                <td>Hamla</td>
+                                <td>Hichem</td>
+
+                                <td>
+                                <div class="input-group input-group-sm  "  style={{width:'2cm'}}>
+                                <input type="text"  className="form-control form-control-sm " />
+                                    <div className="input-group-append">
+                                        
+                                        <span  className="input-group-text form-control-sm">/20</span>
+                                    </div>
+                                </div>
+                                </td>
+                                
+                                
+                               
+                            
+                                
+                </ tr> */}
                 </tbody>
+
                 </table>
-                <button>Save</button>
+                <input type="submit"  onClick={
+                     
+                    this.envoyernote.bind(this)} id ='submitSelect' 
+                value="Sauvegarder les notes" style={{ margin : '4px'}} className="btn btn-outline-primary btn-sm borderAng"/>
+
                
             </div>
           
