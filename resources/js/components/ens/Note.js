@@ -43,21 +43,23 @@ export default class Note extends Component {
         let inputs, index;
         let tab=[];
         inputs = document.getElementsByClassName('envoyerNote');
-        for (index = 0; index < inputs.length; ++index) {
+        for (index = 1; index < inputs.length; ++index) {
             
-            tab.push({ id :inputs[index].id ,note :inputs[index].value});
+                //tab.push({ id :inputs[index].id ,note :inputs[index].value});
+                
+            var obj={
+                exam: document.getElementById('exam').value,
+                niveau:this.state.niveau,
+                group :this.state.group,
+                note: inputs[index].value,
+                id : inputs[index].id,
+                module:this.state.module
+            }
+                axios.post('/envoyerNote',obj)
+                .then(response=>{
+                    
+                });
         }
-      //  this.setState({tabnote :tab},()=>{this.envoyernoteReq()});
-       var obj={
-           exam: document.getElementById('exam').value,
-           niveau:this.state.niveau,
-           group :this.state.group,
-           tabnote:tab
-       }
-        axios.post('/envoyerNote',obj)
-        .then(response=>{
-             
-        });
         
     }
     envoyernote(){
@@ -71,6 +73,7 @@ export default class Note extends Component {
         this.setState({data: obj.data,
             niveau:obj.niveau,
             group:obj.group,
+            module:obj.module
             
         });
         
@@ -98,9 +101,9 @@ export default class Note extends Component {
                     <th scope="col">
                         <select  id='exam' style={{padding :'0px'}} className='btn btn-secondary dropdown-toggle btn-sm borderAng select mdfont btn-sm'
                         >
-                            <option value="CC">CC</option>
-                            <option value="CI">CI</option>
-                            <option value="CF">CF</option>
+                            <option value="cc">CC</option>
+                            <option value="ci">CI</option>
+                            <option value="cf">CF</option>
                             </select>
          
                     </th>
@@ -145,28 +148,7 @@ export default class Note extends Component {
 
                    
                 
-               
-                {/* <tr>
-                                <th scope="row">170/16</th>
-                                 
-                                <td>Hamla</td>
-                                <td>Hichem</td>
-
-                                <td>
-                                <div class="input-group input-group-sm  "  style={{width:'2cm'}}>
-                                <input type="text"  className="form-control form-control-sm " />
-                                    <div className="input-group-append">
-                                        
-                                        <span  className="input-group-text form-control-sm">/20</span>
-                                    </div>
-                                </div>
-                                </td>
-                                
-                                
-                               
-                            
-                                
-                </ tr> */}
+        
                 </tbody>
 
                 </table>

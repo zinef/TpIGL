@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  
+}
+
+
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  transform: translate(-50%, -50%);
+}
+
+.topnav-right {
+  float: right;
+  background-color: rgb(92, 88, 88);
+  color: white;
+  opacity: 0.75;
+  
+}
+
+/* Responsive navigation menu (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+  
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    background-color:rgb(92, 88, 88) ;
+  }
+}
+
+
+
+
+.square {
+width: 100%;
+  background-image: url("C:/Users/hichem/Desktop/0.jpg");
+  
+  background-size:100%;
+}
+
+</style>
+</head>
+<body class="square">
+
+    <div class="topnav">
+
+        <!-- Centered link -->
+        <div class="topnav-centered bg-secondary">
+          <a href="" >
+              <h1   >ESI Scolarity</h1>
+          </a>
+        </div>
+        
+        <!-- Left-aligned links (default) -->
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        
+        <!-- Right-aligned links -->
+        <div class="topnav-right text-white">
+          <a href="#search">About us</a>
+          <a href="#about" class="text-white">sign in</a>
+        </div>
+        
+      </div>
+      
+      <div id="aBtnGroup" class="btn-group">
+        <button type="button" value="L" class="btn btn-default">Left</button>
+        <button type="button" value="M" class="btn btn-default">Middle</button>
+        <button type="button" value="R" class="btn btn-default">Right</button>
+      </div>
+      <p>
+        <input id="0" value="16"/>
+        <input id="1" value="15"/>
+        <input  id="2"value="12"/>
+        <button onclick="click()" id="b">wwwwwww</button>
+          <script>
+              var inputs, index;
+              var i=document.getElementById('0');
+              var tab=[];
+              inputs = document.getElementsByTagName('input');
+              for (index = 0; index < inputs.length; ++index) {
+                  // deal with  element.
+                  tab.push({ id :inputs[index].id ,note :inputs[index].value});
+              }
+                console.log(tab);
+          </script> 
+       
+    
+
+</body>
+</html>
