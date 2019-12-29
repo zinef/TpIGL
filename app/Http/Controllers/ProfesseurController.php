@@ -22,6 +22,44 @@ class ProfesseurController extends Controller
         $note -> save() ;
         return redirect('/saisirNotes') ;
     }
+
+    public function affectationDesNotes(Request $request){
+        $exam=request('exam');
+        $niveau=request('niveau');
+        $group=request('group');
+        $moduleCode=request('module');
+        $idEtudiant=request('id');
+        $moduleId=Module::where('code',$moduleCode)->get();
+        $note =Note::where('etudiant_id',$id)->where('module_id',$moduleId);
+        if ($note != null){//modification d'une note existante déja
+                if($exam == "cc"){
+                    $note -> cc= request('cc') ;
+                }
+                if ($exam =="cf"){
+                    $note -> cf= request('cf') ;
+                }
+                if($exam =="ci"){
+                    $note -> ci= request('ci') ;
+                }
+                $note->moyenne = (($note -> ci) +($note -> cc) +2*($note -> cf))/4 ;
+        }else{
+            $note = new Note();
+
+            if($exam == "cc"){
+                $note -> cc= request('cc') ;
+            }
+            if ($exam =="cf"){
+                $note -> cf= request('cf') ;
+            }
+            if($exam =="ci"){
+                $note -> ci= request('ci') ;
+            }
+            $note->moyenne = (($note -> ci) +($note -> cc) +2*($note -> cf))/4 ;
+            $note->etudiant_id = $id;
+            $note->module_id= $moduleId;
+        }
+        $note->save();
+    }
     public function index($id){
 
         $listetudiant=Etudiant::where('groupe_id',$id)->get();

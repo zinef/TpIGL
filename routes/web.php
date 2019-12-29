@@ -14,10 +14,14 @@ use App\User;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
    // return view('welcome');
     return response()->json(App\User::all());
+});*/
+Route::get('/', function () {
+    return view('welcomeHichem'); 
 });
+Route::post('/envoyerNote','ProfesseurController@affectationDesNotes');
 Route::get('/informations/{id}','ProfesseurController@affichageInfos')->name('informations');
 Auth::routes();
 Route:: get ('/saisirnotes/{id}',function($id){

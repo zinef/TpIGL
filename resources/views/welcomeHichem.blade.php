@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>Welcome</title>
         <link href="css/app.css" rel="stylesheet" type="text/css" >
         <link href="js/components/welcome.css" rel="stylesheet" type="text/css" >
     </head>
