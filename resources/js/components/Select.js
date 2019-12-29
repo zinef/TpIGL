@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 export default class Select extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {niveau: '1CS',group:'G1'
+      this.state = {niveau: '1CS',group:'G1',module:'SYC'
     };
   
       this.handleChange = this.handleChange.bind(this);
@@ -15,17 +15,20 @@ export default class Select extends React.Component {
      
      
       console.log('charger liste de select ');
-      console.log(this.state.niveau );
-      console.log(this.state.group );
+      
+      console.log(this.state );
       axios.get('http://127.0.0.1:8000/Enseignant/Note',{
           params:{
               niveau: this.state.niveau,
-              group: this.state.group
+              group: this.state.group,
+              module:this.state.module
           }
       })
       .then(response=>{
         
-        this.props.handlerFromParant({ data : response.data, niveau:this.state.niveau ,group :this.state.group});
+        this.props.handlerFromParant({ data : response.data, niveau:this.state.niveau ,group :this.state.group,
+          module:this.state.module
+        });
            
       });
 
@@ -39,24 +42,24 @@ export default class Select extends React.Component {
     }
   
     handleSubmit(event) {
-      alert('niveau: ' + this.state.niveau+' group : '+ this.state.group);
-      axios.post(
-        "/liste",
-        {
-         // params: {
-            group: this.state.group,
-            niveau: this.state.niveau
-         // }
-        }
-      )
-      .then(response => {
-        console.log(response.data);
+      // alert('niveau: ' + this.state.niveau+' group : '+ this.state.group);
+      // axios.post(
+      //   "/liste",
+      //   {
+      //    // params: {
+      //       group: this.state.group,
+      //       niveau: this.state.niveau
+      //    // }
+      //   }
+      // )
+      // .then(response => {
+      //   console.log(response.data);
         
-      })
-      .catch(error => {
-        console.log("login error", error);
-      });
-      event.preventDefault();
+      // })
+      // .catch(error => {
+      //   console.log("login error", error);
+      // });
+      // event.preventDefault();
 
       
     }
@@ -77,10 +80,18 @@ export default class Select extends React.Component {
           </label>
           <label>
             
-            <select value={this.state.group} className='btn btn-secondary dropdown-toggle btn-sm borderAng select' name ='group'onChange={this.handleChange}>
+            <select value={this.state.group} className='btn btn-secondary dropdown-toggle btn-sm borderAng select'
+             name ='group'onChange={this.handleChange}>
               <option value="G1">G1</option>
               <option value="G2">G2</option>
               <option value="G3">G3</option>
+              
+            </select>
+            <select value={this.state.module} className='btn btn-secondary dropdown-toggle btn-sm borderAng select' 
+             name ='module'onChange={this.handleChange}>
+              <option value="syc">SYC</option>
+              <option value="ro">RO</option>
+              <option value="igl">IGL</option>
               
             </select>
           </label>
