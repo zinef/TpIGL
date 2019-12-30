@@ -17,7 +17,7 @@ export default class Select extends React.Component {
       console.log('charger liste de select ');
       
       console.log(this.state );
-      axios.get('http://127.0.0.1:8000/Enseignant/Note',{
+      axios.get('/Enseignant/Note',{
           params:{
               niveau: this.state.niveau,
               group: this.state.group,
@@ -68,7 +68,7 @@ export default class Select extends React.Component {
       return (
         <form onSubmit={this.passdata}>
           <label>
-            <span style={{ fontSize: '17px'}} >Choisi un groupe pour les affecter des note : <span> </span> </span> 
+            <span style={{ fontSize: '17px'}} > Vous Choisissez un groupe pour leurs affecter des notes : <span> </span> </span> 
             <select value={this.state.niveau} className='btn btn-secondary dropdown-toggle btn-sm borderAng select'
              name ='niveau' onChange={this.handleChange}>
               <option value="1CP">1CP</option>
@@ -82,17 +82,23 @@ export default class Select extends React.Component {
             
             <select value={this.state.group} className='btn btn-secondary dropdown-toggle btn-sm borderAng select'
              name ='group'onChange={this.handleChange}>
-              <option value="G1">G1</option>
-              <option value="G2">G2</option>
-              <option value="G3">G3</option>
-              
+              <option value="1">G1</option>
+              <option value="2">G2</option>
+              <option value="3">G3</option>
+              <option value="4">G4</option>
+              <option value="5">G5</option>
+              <option value="6">G6</option>
+              <option value="7">G7</option>
+              <option value="8">G8</option>
+              <option value="9">G9</option>
             </select>
+          </label>
+          <label>
             <select value={this.state.module} className='btn btn-secondary dropdown-toggle btn-sm borderAng select' 
              name ='module'onChange={this.handleChange}>
               <option value="syc">SYC</option>
               <option value="ro">RO</option>
               <option value="igl">IGL</option>
-              
             </select>
           </label>
           <input type="submit" id ='submitSelect' value="Submit" style={{ margin : '4px'}} className="btn btn-outline-primary btn-sm borderAng"/>

@@ -43,7 +43,7 @@ export default class Note extends Component {
         let inputs, index;
         let tab=[];
         inputs = document.getElementsByClassName('envoyerNote');
-        for (index = 1; index < inputs.length; ++index) {
+        for (index = 0; index < inputs.length; ++index) {
             
                 //tab.push({ id :inputs[index].id ,note :inputs[index].value});
                 
@@ -65,7 +65,7 @@ export default class Note extends Component {
     envoyernote(){
         this.recuperernote();
         
-        
+
     }
 
     
@@ -116,39 +116,21 @@ export default class Note extends Component {
                         this.state.data.map(data=>{
                             return(
                                 <tr>
-                                <th scope="row" key={data.id}>{data.id}</th>
-                                
-                                <td>{data.nom}</td>
-                                <td>{data.prenom}</td>
-                                <td>
-                                    <div class="input-group input-group-sm  "  style={{width:'2cm'}}>
-                                    <input type="text"  className="form-control form-control-sm envoyerNote"  id ={data.id} />
-                                        <div className="input-group-append">
-                                            
-                                            <span  className="input-group-text form-control-sm" >/20</span>
+                                <th scope="row" key={data.matricule}>{data.matricule}</th>
+                                    <td>{data.nom}</td>
+                                    <td>{data.prenom}</td>
+                                    <td>
+                                        <div class="input-group input-group-sm  "  style={{width:'2cm'}}>
+                                        <input type="text"  className="form-control form-control-sm envoyerNote"  id ={data.id} />
+                                            <div className="input-group-append">
+                                                
+                                                <span  className="input-group-text form-control-sm" >/20</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                
-                               
-                            
-                                
-    
+                                    </td>
                                 </tr>
-                                
                             );
-                        })} 
-
-                        
-                      
-       
-
-
-                    
-
-                   
-                
-        
+                        })}
                 </tbody>
 
                 </table>

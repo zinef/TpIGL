@@ -7,63 +7,78 @@ use App\Note ;
 use App\User ;
 use App\Etudiant ;
 use App\Professeur;
+use App\Module;
 class ProfesseurController extends Controller
 {
 
     /* les méthodes qui controllent l'affetation des notes*/
-   public function ajouterNote($id){
-        $note = new Note() ; 
-        $note -> ci= request('ci') ;
-        $note -> cf= request('cf') ;
-        $note -> cc= request('cc') ;
-        $note->etudiant_id = $id;
-        $note-> moyenne = (($note -> ci) +($note -> cc) +2*($note -> cf))/4 ;
-
-        $note -> save() ;
-        return redirect('/saisirNotes') ;
-    }
-
     public function affectationDesNotes(Request $request){
         $exam=request('exam');
         $niveau=request('niveau');
         $group=request('group');
         $moduleCode=request('module');
         $idEtudiant=request('id');
-        $moduleId=Module::where('code',$moduleCode)->get();
-        $note =Note::where('etudiant_id',$id)->where('module_id',$moduleId);
-        if ($note != null){//modification d'une note existante déja
-                if($exam == "cc"){
-                    $note -> cc= request('cc') ;
+        $module=Module::where('code',$moduleCode)->get(); 
+        $moduleId=$module[0]->id;
+        $note =Note::where('etudiant_id',$idEtudiant)->where('module_id',$moduleId)->get();
+        if (!empty($note[0])){//modification d'une note existante déja
+                $noteId=$note[0]->id;
+                $note=Note::find($noteId);
+                if($exam == "CC"){
+                    $note -> cc= request('note') ;
                 }
-                if ($exam =="cf"){
-                    $note -> cf= request('cf') ;
+                if ($exam =="CF"){
+                    $note -> cf= request('note') ;
                 }
-                if($exam =="ci"){
-                    $note -> ci= request('ci') ;
+                if($exam =="CI"){
+                    $note -> ci= request('note') ;
                 }
                 $note->moyenne = (($note -> ci) +($note -> cc) +2*($note -> cf))/4 ;
+                $note->save();
         }else{
+
             $note = new Note();
 
-            if($exam == "cc"){
-                $note -> cc= request('cc') ;
+            if($exam == "CC"){
+                $note -> cc= request('note') ;
             }
-            if ($exam =="cf"){
-                $note -> cf= request('cf') ;
+            if ($exam =="CF"){
+                $note -> cf= request('note') ;
             }
-            if($exam =="ci"){
-                $note -> ci= request('ci') ;
+            if($exam =="CI"){
+                $note -> ci= request('note') ;
             }
             $note->moyenne = (($note -> ci) +($note -> cc) +2*($note -> cf))/4 ;
-            $note->etudiant_id = $id;
-            $note->module_id= $moduleId;
+            $note->etudiant_id = $idEtudiant;
+            $note->module_id= $moduleId;  
+            $note->save();
         }
-        $note->save();
+        
+        return response()->json(['success' => 'success'], 200);
     }
-    public function index($id){
+    public function index(Request $request){
+        if (count($request->all())) {
+        $niveau=request('niveau');
+        $groupe=request('group');
+        //$module=request('module');
+        $etudiantsAAfficher=Etudiant::where('niveau',$niveau)->where('groupe_id',$groupe)->get();
+        $data=[
 
-        $listetudiant=Etudiant::where('groupe_id',$id)->get();
-        return view('index',['etudiant'=>$listetudiant]) ;
+        ];
+        foreach($etudiantsAAfficher as $etudiant){
+            $idEtudiant=$etudiant->id;
+            $user=User::find($idEtudiant);
+            $datatoadd=[
+                "id"=>$idEtudiant,
+                "nom"=>$user->surname,
+                "prenom"=>$user->name,
+                "matricule"=>$etudiant->matricule
+            ];
+            array_push($data,$datatoadd);
+        }
+
+        return response()->json($data);
+        }
     }
 
     public function create(Request $request){

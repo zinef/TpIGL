@@ -14,22 +14,20 @@ use App\User;
 |
 */
 
-/*Route::get('/', function () {
-   // return view('welcome');
-    return response()->json(App\User::all());
-});*/
+Auth::routes();
 Route::get('/', function () {
     return view('welcomeHichem'); 
 });
+Route::get('/Enseignant/Note', 'ProfesseurController@index')->name('liste');
 Route::post('/envoyerNote','ProfesseurController@affectationDesNotes');
+
+
+//Anciennes routes
 Route::get('/informations/{id}','ProfesseurController@affichageInfos')->name('informations');
-Auth::routes();
 Route:: get ('/saisirnotes/{id}',function($id){
 return view('SaisirNotes',['id' => $id]) ;
 });
-Route::post('/saisirnotes/{id}', 'ProfesseurController@ajouterNote')->name('saisirnotes');
-Route::get('/liste/{id}', 'ProfesseurController@index')->name('liste');
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
 

@@ -6417,7 +6417,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".topnav {\r\n    position: relative;\r\n    overflow: hidden;\r\n    background-color: transparent;\r\n  }\r\n  \r\n  .topnav a {\r\n    float: left;\r\n    color: #f2f2f2;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    font-size: 17px;\r\n  }\r\n  \r\n  /*.topnav a:hover {\r\n    \r\n  }*/\r\n  \r\n  \r\n  \r\n  .topnav-centered a {\r\n    float: none;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    \r\n    -webkit-transform: translate(-50%, -50%);\r\n    \r\n            transform: translate(-50%, -50%);\r\n  }\r\n  \r\n  .topnav-right {\r\n    float: right;\r\n    background-color: rgb(92, 88, 88);\r\n    color: white;\r\n    opacity: 0.75;\r\n    \r\n  }\r\n  \r\n  /* Responsive navigation menu (for mobile devices) */\r\n  @media screen and (max-width: 600px) {\r\n    .topnav a, .topnav-right {\r\n      float: none;\r\n      display: block;\r\n    }\r\n    \r\n    .topnav-centered a {\r\n      position: relative;\r\n      top: 0;\r\n      left: 0;\r\n      -webkit-transform: none;\r\n              transform: none;\r\n      background-color:rgb(92, 88, 88) ;\r\n    }\r\n  }\r\n  \r\n  \r\n  \r\n  \r\n  .square {\r\n  width: 100%;\r\n  height: 100%;\r\n    background-image: url(" + escape(__webpack_require__(/*! ../../img/0.jpg */ "./resources/img/0.jpg")) + ");\r\n    background-attachment: fixed;\r\n    background-size:100%;\r\n  }\r\n  ", ""]);
+exports.push([module.i, ".topnav {\r\n    position: relative;\r\n    overflow: hidden;\r\n    background-color: transparent;\r\n  }\r\n  \r\n  .topnav a {\r\n    float: left;\r\n    color: #f2f2f2;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    font-size: 17px;\r\n  }\r\n  \r\n  .topnav a:hover {\r\n    \r\n  }\r\n  \r\n  \r\n  \r\n  .topnav-centered a {\r\n    float: none;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    \r\n    -webkit-transform: translate(-50%, -50%);\r\n    \r\n            transform: translate(-50%, -50%);\r\n  }\r\n  \r\n  .topnav-right {\r\n    float: right;\r\n    background-color: rgb(92, 88, 88);\r\n    color: white;\r\n    opacity: 0.75;\r\n    \r\n  }\r\n  \r\n  /* Responsive navigation menu (for mobile devices) */\r\n  @media screen and (max-width: 600px) {\r\n    .topnav a, .topnav-right {\r\n      float: none;\r\n      display: block;\r\n    }\r\n    \r\n    .topnav-centered a {\r\n      position: relative;\r\n      top: 0;\r\n      left: 0;\r\n      -webkit-transform: none;\r\n              transform: none;\r\n      background-color:rgb(92, 88, 88) ;\r\n    }\r\n  }\r\n  \r\n  \r\n  \r\n  \r\n  .square {\r\n  width: 100%;\r\n  height: 100%;\r\n    background-image: url(" + escape(__webpack_require__(/*! ../../img/0.jpg */ "./resources/img/0.jpg")) + ");\r\n    background-attachment: fixed;\r\n    background-size:100%;\r\n  }\r\n  ", ""]);
 
 // exports
 
@@ -73718,7 +73718,8 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Select).call(this, props));
     _this.state = {
       niveau: '1CS',
-      group: 'G1'
+      group: 'G1',
+      module: 'SYC'
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -73733,18 +73734,19 @@ function (_React$Component) {
 
       evt.preventDefault();
       console.log('charger liste de select ');
-      console.log(this.state.niveau);
-      console.log(this.state.group);
-      axios.get('http://127.0.0.1:8000/Enseignant/Note', {
+      console.log(this.state);
+      axios.get('/Enseignant/Note', {
         params: {
           niveau: this.state.niveau,
-          group: this.state.group
+          group: this.state.group,
+          module: this.state.module
         }
       }).then(function (response) {
         _this2.props.handlerFromParant({
           data: response.data,
           niveau: _this2.state.niveau,
-          group: _this2.state.group
+          group: _this2.state.group,
+          module: _this2.state.module
         });
       });
     }
@@ -73755,19 +73757,23 @@ function (_React$Component) {
     }
   }, {
     key: "handleSubmit",
-    value: function handleSubmit(event) {
-      alert('niveau: ' + this.state.niveau + ' group : ' + this.state.group);
-      axios.post("/liste", {
-        // params: {
-        group: this.state.group,
-        niveau: this.state.niveau // }
-
-      }).then(function (response) {
-        console.log(response.data);
-      })["catch"](function (error) {
-        console.log("login error", error);
-      });
-      event.preventDefault();
+    value: function handleSubmit(event) {// alert('niveau: ' + this.state.niveau+' group : '+ this.state.group);
+      // axios.post(
+      //   "/liste",
+      //   {
+      //    // params: {
+      //       group: this.state.group,
+      //       niveau: this.state.niveau
+      //    // }
+      //   }
+      // )
+      // .then(response => {
+      //   console.log(response.data);
+      // })
+      // .catch(error => {
+      //   console.log("login error", error);
+      // });
+      // event.preventDefault();
     }
   }, {
     key: "render",
@@ -73778,7 +73784,7 @@ function (_React$Component) {
         style: {
           fontSize: '17px'
         }
-      }, "Choisi un groupe pour les affecter des note : ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " "), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, " Vous Choisissez un groupe pour leurs affecter des notes : ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " "), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         value: this.state.niveau,
         className: "btn btn-secondary dropdown-toggle btn-sm borderAng select",
         name: "niveau",
@@ -73799,12 +73805,35 @@ function (_React$Component) {
         name: "group",
         onChange: this.handleChange
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "G1"
+        value: "1"
       }, "G1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "G2"
+        value: "2"
       }, "G2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "G3"
-      }, "G3"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        value: "3"
+      }, "G3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "4"
+      }, "G4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "G5"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "6"
+      }, "G6"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "7"
+      }, "G7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "8"
+      }, "G8"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "9"
+      }, "G9"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        value: this.state.module,
+        className: "btn btn-secondary dropdown-toggle btn-sm borderAng select",
+        name: "module",
+        onChange: this.handleChange
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "syc"
+      }, "SYC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "ro"
+      }, "RO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "igl"
+      }, "IGL"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         id: "submitSelect",
         value: "Submit",
@@ -74492,20 +74521,17 @@ function (_Component) {
       inputs = document.getElementsByClassName('envoyerNote');
 
       for (index = 0; index < inputs.length; ++index) {
-        tab.push({
+        //tab.push({ id :inputs[index].id ,note :inputs[index].value});
+        var obj = {
+          exam: document.getElementById('exam').value,
+          niveau: this.state.niveau,
+          group: this.state.group,
+          note: inputs[index].value,
           id: inputs[index].id,
-          note: inputs[index].value
-        });
-      } //  this.setState({tabnote :tab},()=>{this.envoyernoteReq()});
-
-
-      var obj = {
-        exam: document.getElementById('exam').value,
-        niveau: this.state.niveau,
-        group: this.state.group,
-        tabnote: tab
-      };
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/envoyerNote', obj).then(function (response) {});
+          module: this.state.module
+        };
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/envoyerNote', obj).then(function (response) {});
+      }
     }
   }, {
     key: "envoyernote",
@@ -74518,7 +74544,8 @@ function (_Component) {
       this.setState({
         data: obj.data,
         niveau: obj.niveau,
-        group: obj.group
+        group: obj.group,
+        module: obj.module
       });
     }
   }, {
@@ -74551,18 +74578,18 @@ function (_Component) {
         },
         className: "btn btn-secondary dropdown-toggle btn-sm borderAng select mdfont btn-sm"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "CC"
+        value: "cc"
       }, "CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "CI"
+        value: "ci"
       }, "CI"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "CF"
+        value: "cf"
       }, "CF"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
         className: "text-white"
       }, this.state.data.map(function (data) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           scope: "row",
-          key: data.id
-        }, data.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nom), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.prenom), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: data.matricule
+        }, data.matricule), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nom), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.prenom), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           "class": "input-group input-group-sm  ",
           style: {
             width: '2cm'
