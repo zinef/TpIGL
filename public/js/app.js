@@ -74215,7 +74215,7 @@ function (_Component) {
       }, this.state.data.map(function (data) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           scope: "row"
-        }, data.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nom), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.prenom), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Note), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Note), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.Note));
+        }, data.matricule), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nom), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.prenom), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.ci), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.cc), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.cf), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.moyenne));
       }))));
     }
   }]);

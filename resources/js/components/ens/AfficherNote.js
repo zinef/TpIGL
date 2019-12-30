@@ -57,14 +57,14 @@ export default class AfficherNote extends Component {
                         this.state.data.map(data=>{
                             return(
                                 <tr>
-                                <th scope="row">{data.id}</th>
+                                <th scope="row">{data.matricule}</th>
                                 
                                 <td>{data.nom}</td>
                                 <td>{data.prenom}</td>
-                                <td>{data.Note}</td>
-                                <td>{data.Note}</td>
-                                <td>{data.Note}</td>
-                                
+                                <td>{data.ci}</td>
+                                <td>{data.cc}</td>
+                                <td>{data.cf}</td>
+                                <td>{data.moyenne}</td>
                                 
                                
                             

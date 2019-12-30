@@ -24,13 +24,13 @@ class ProfesseurController extends Controller
         if (!empty($note[0])){//modification d'une note existante déja
                 $noteId=$note[0]->id;
                 $note=Note::find($noteId);
-                if($exam == "CC"){
+                if($exam == "cc"){
                     $note -> cc= request('note') ;
                 }
-                if ($exam =="CF"){
+                if ($exam =="cf"){
                     $note -> cf= request('note') ;
                 }
-                if($exam =="CI"){
+                if($exam =="ci"){
                     $note -> ci= request('note') ;
                 }
                 $note->moyenne = (($note -> ci) +($note -> cc) +2*($note -> cf))/4 ;
@@ -39,13 +39,13 @@ class ProfesseurController extends Controller
 
             $note = new Note();
 
-            if($exam == "CC"){
+            if($exam == "cc"){
                 $note -> cc= request('note') ;
             }
-            if ($exam =="CF"){
+            if ($exam =="cf"){
                 $note -> cf= request('note') ;
             }
-            if($exam =="CI"){
+            if($exam =="ci"){
                 $note -> ci= request('note') ;
             }
             $note->moyenne = (($note -> ci) +($note -> cc) +2*($note -> cf))/4 ;
@@ -56,33 +56,52 @@ class ProfesseurController extends Controller
         
         return response()->json(['success' => 'success'], 200);
     }
+
+
+    /*la méthode qui retourne les listes des etudiants soit pour leurs affecter des notes
+     ou pour afficher ces derneiere*/
     public function index(Request $request){
-        if (count($request->all())) {
-        $niveau=request('niveau');
-        $groupe=request('group');
-        //$module=request('module');
-        $etudiantsAAfficher=Etudiant::where('niveau',$niveau)->where('groupe_id',$groupe)->get();
-        $data=[
-
-        ];
-        foreach($etudiantsAAfficher as $etudiant){
-            $idEtudiant=$etudiant->id;
-            $user=User::find($idEtudiant);
-            $datatoadd=[
-                "id"=>$idEtudiant,
-                "nom"=>$user->surname,
-                "prenom"=>$user->name,
-                "matricule"=>$etudiant->matricule
-            ];
-            array_push($data,$datatoadd);
-        }
-
-        return response()->json($data);
-        }
-    }
-
-    public function create(Request $request){
      
+        if (count($request->all())){
+            $niveau=request('niveau');
+            $groupe=request('group');
+            $module=request('module');
+            $etudiants=Etudiant::where('niveau',$niveau)
+                                ->where('groupe_id',$groupe)
+                                ->get();
+            $Module=Module::where('code',$module)->get();
+            $idModule=$Module[0]->id;
+            $data=[
+
+            ];
+            $noteAAfficher=[
+
+            ];
+            foreach($etudiants as $etudiant){
+                $idEtudiant=$etudiant->id;
+                $note=Note::where('etudiant_id',$idEtudiant)
+                      ->where('module_id',$idModule)
+                      ->get();
+                array_push($noteAAfficher,$note[0]);
+            }
+
+            foreach($noteAAfficher as $n){
+                $etudiant=Etudiant::find($n->etudiant_id);
+                $user=User::find($n->etudiant_id);
+                $datatoadd=[
+                    "id"=>$n->etudiant_id,
+                    "matricule"=>$etudiant->matricule,
+                    "nom"=>$user->surname,
+                    "prenom"=>$user->name,
+                    "cc"=>$n->cc,
+                    "ci"=>$n->ci,
+                    "cf"=>$n->cf,
+                    "moyenne"=>$n->moyenne
+                ];
+                array_push($data,$datatoadd);
+            }
+            return response()->json($data);
+        }
     }
 
     /*les méthodes qui controllent l'affichage des information */
@@ -111,58 +130,4 @@ class ProfesseurController extends Controller
         }
     }
 
-    
-   // use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-
-    //protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-   /* public function __construct()
-    {
-        $this->middleware('guest');
-    }*/
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-/*
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'ci' => ['required', 'string', 'max:255'],
-            'cf' => ['required', 'string', 'max:255'],
-            'cc' => ['required', 'string', 'max:255'],
-           
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Note
-     */
-    /*
-    protected function create(array $data)
-    {
-        return Note::create([
-            'ci' => $data['ci'],
-            'cf' => $data['cf'],
-            'cc' => $data['cc'],
-       
-        ]);
-    }*/
 }

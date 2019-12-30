@@ -18,8 +18,8 @@ Auth::routes();
 Route::get('/', function () {
     return view('welcomeHichem'); 
 });
-Route::get('/Enseignant/Note', 'ProfesseurController@index')->name('liste');
-Route::post('/envoyerNote','ProfesseurController@affectationDesNotes');
+Route::get('/Enseignant/Note', 'ProfesseurController@index')->name('RecuperationListe');
+Route::post('/envoyerNote','ProfesseurController@affectationDesNotes')->name('AffectationNotes');
 
 
 //Anciennes routes
