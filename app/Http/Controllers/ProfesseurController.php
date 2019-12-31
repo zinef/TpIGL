@@ -85,7 +85,7 @@ class ProfesseurController extends Controller
                 array_push($noteAAfficher,$note[0]);
             }
 
-            foreach($noteAAfficher as $n){
+            foreach($noteAAfficher as $n){  
                 $etudiant=Etudiant::find($n->etudiant_id);
                 $user=User::find($n->etudiant_id);
                 $datatoadd=[
@@ -126,7 +126,7 @@ class ProfesseurController extends Controller
                 "grade"=> $queryProfesseur->grade ,
 
             ];
-            return $data;
+            return response()->json($data);
         }
     }
 

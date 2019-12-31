@@ -20,10 +20,9 @@ Route::get('/', function () {
 });
 Route::get('/Enseignant/Note', 'ProfesseurController@index')->name('RecuperationListe');
 Route::post('/envoyerNote','ProfesseurController@affectationDesNotes')->name('AffectationNotes');
-
+Route::get('/informations/{id}','ProfesseurController@affichageInfos')->name('informations');
 
 //Anciennes routes
-Route::get('/informations/{id}','ProfesseurController@affichageInfos')->name('informations');
 Route:: get ('/saisirnotes/{id}',function($id){
 return view('SaisirNotes',['id' => $id]) ;
 });
