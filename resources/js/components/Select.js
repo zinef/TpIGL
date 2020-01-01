@@ -42,26 +42,6 @@ export default class Select extends React.Component {
     }
   
     handleSubmit(event) {
-      // alert('niveau: ' + this.state.niveau+' group : '+ this.state.group);
-      // axios.post(
-      //   "/liste",
-      //   {
-      //    // params: {
-      //       group: this.state.group,
-      //       niveau: this.state.niveau
-      //    // }
-      //   }
-      // )
-      // .then(response => {
-      //   console.log(response.data);
-        
-      // })
-      // .catch(error => {
-      //   console.log("login error", error);
-      // });
-      // event.preventDefault();
-
-      
     }
   
     render() {

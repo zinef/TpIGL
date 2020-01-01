@@ -65,33 +65,10 @@ export default class AfficherNote extends Component {
                                 <td>{data.cc}</td>
                                 <td>{data.cf}</td>
                                 <td>{data.moyenne}</td>
-                                
-                               
-                            
-                                
                                 </tr>
                                 
                             );
                         })} 
-  
-                                       {/* <tr>
-                    <th scope="row">1</th>
-                    
-                    <td>hamla </td>
-                    <td>hichem</td>
-                    
-                    
-                    <td> 15 </td>
-                    <td> 15 </td>
-                    <td> 15 </td>
-                    <td> 15 </td>
-                    
-                    
-                    
-                    </tr>
-                     */}
-                    
-                    
                 </tbody>
                 </table>
               

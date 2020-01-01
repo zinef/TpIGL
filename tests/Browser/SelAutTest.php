@@ -20,11 +20,11 @@ class SelAutTest extends DuskTestCase
      */
     public function testAutoAffichageDesNotes()
     {
-        $this->browse(function (Browser $first,Browser $second) {
-            $first->visit('/')
-                    ->clickLink('Suivant')
-                    ->clickLink('Login')
-                    ->clickLink('Affichage Des notes')
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                    ->click('@suivant')
+                    ->click('@login')
+                    ->click('@afficherNotes')
                     ->select('niveau','1CS')
                     ->select('group','9')
                     ->select('module','SYC')

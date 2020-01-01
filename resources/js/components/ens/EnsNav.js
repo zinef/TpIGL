@@ -32,7 +32,7 @@ export default class EnsNav extends Component {
                             </li>
                            
                             <li className="nav-item">
-                              <Link className="nav-link active mdfont" to="/Enseignant/AfficherNote">Affichage Des notes</Link>
+                              <Link dusk="afficherNotes" className="nav-link active mdfont" to="/Enseignant/AfficherNote">Affichage des notes</Link>
                             </li>
                            
                             
@@ -41,20 +41,7 @@ export default class EnsNav extends Component {
                         </div>
                       </nav>
 
-                       <br/>
-                     
- 
-
-
-             
-                    
-                  
-                
-                
-             
-
-
-                
+                       <br/>                
                 <Route exact path='/Enseignant/Note' >
                     
                     <Note/>

@@ -14,7 +14,7 @@ use App\User;
 |
 */
 
-Auth::routes();
+//Auth::routes();
 Route::get('/', function () {
     return view('welcomeHichem'); 
 });
