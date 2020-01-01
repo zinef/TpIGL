@@ -134,7 +134,7 @@ export default class Note extends Component {
                 </tbody>
 
                 </table>
-                <input type="submit"  onClick={
+                <input dusk="sauvgarder-button" type="submit"  onClick={
                      
                     this.envoyernote.bind(this)} id ='submitSelect' 
                 value="Sauvegarder les notes" style={{ margin : '4px'}} className="btn btn-outline-primary btn-sm borderAng"/>

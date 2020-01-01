@@ -101,7 +101,7 @@ export default class Select extends React.Component {
               <option value="igl">IGL</option>
             </select>
           </label>
-          <input type="submit" id ='submitSelect' value="Submit" style={{ margin : '4px'}} className="btn btn-outline-primary btn-sm borderAng"/>
+          <input dusk="submit-button" type="submit" id ='submitSelect' value="Submit" style={{ margin : '4px'}} className="btn btn-outline-primary btn-sm borderAng"/>
         </form>
       );
     }

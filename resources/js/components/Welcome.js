@@ -26,7 +26,7 @@ export default class Welcome extends Component {
                 
                     <div className="topnav-right text-white">
 
-                    <Link to='/login' className="" >login</Link>
+                    <Link to='/login' className="" >Suivant</Link>
                     {/* <Link to='/Enseignant/Note' className="" >about us</Link> */}
                     
                     

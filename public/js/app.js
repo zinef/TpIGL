@@ -73834,6 +73834,7 @@ function (_React$Component) {
       }, "RO"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "igl"
       }, "IGL"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        dusk: "submit-button",
         type: "submit",
         id: "submitSelect",
         value: "Submit",
@@ -73924,7 +73925,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "/login",
         className: ""
-      }, "login"))));
+      }, "Suivant"))));
     }
   }]);
 
@@ -74321,12 +74322,12 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         className: "nav-link active mdfont",
         to: "/Enseignant/Note"
-      }, "Affectation des note")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      }, "Affectation des notes")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "nav-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         className: "nav-link active mdfont",
         to: "/Enseignant/AfficherNote"
-      }, "Afficher les note"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }, "Affichage Des notes"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/Enseignant/Note"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Note__WEBPACK_IMPORTED_MODULE_3__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -74604,6 +74605,7 @@ function (_Component) {
           className: "input-group-text form-control-sm"
         }, "/20")))));
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        dusk: "sauvgarder-button",
         type: "submit",
         onClick: this.envoyernote.bind(this),
         id: "submitSelect",
