@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router,Link,Route} from 'react-router-dom';
 import Note from './Note';
 import AfficherNote from './AfficherNote';
+import Profile from './Profile';
 import  '../style.css';
 
 
@@ -24,7 +25,7 @@ export default class EnsNav extends Component {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                           <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
-                              <Link className="nav-link mdfont  " to="/Enseignant/EmploisTemp">Emplois de temps <span className="sr-only">(current)</span></Link>
+                              <Link className="nav-link mdfont  " to="/Enseignant/Profile">Profile <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
                               <Link className="nav-link active mdfont" to="/Enseignant/Note">Affectation des note</Link>
@@ -58,10 +59,8 @@ export default class EnsNav extends Component {
                     
                     <Note/>
                 </Route>
-                <Route exact path='/Enseignant/EmploisTemp' >
-                    <div className="container">
-                      {/* <button>click sur ce bouton por telecharger votre emplois</button> */}
-                    </div>                    
+                <Route exact path='/Enseignant/Profile' >
+                   <Profile/>                   
                 </Route>
                 <Route exact path='/Enseignant/AfficherNote' >
                     
