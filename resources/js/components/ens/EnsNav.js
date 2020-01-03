@@ -28,11 +28,11 @@ export default class EnsNav extends Component {
                               <Link className="nav-link mdfont  " to="/Enseignant/Profile">Profile <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                              <Link className="nav-link active mdfont" to="/Enseignant/Note">Affectation des note</Link>
+                              <Link className="nav-link active mdfont" to="/Enseignant/Note">Affectation des notes</Link>
                             </li>
                            
                             <li className="nav-item">
-                              <Link className="nav-link active mdfont" to="/Enseignant/AfficherNote">Afficher les note</Link>
+                              <Link dusk="afficherNotes" className="nav-link active mdfont" to="/Enseignant/AfficherNote">Affichage des notes</Link>
                             </li>
                            
                             
@@ -41,20 +41,7 @@ export default class EnsNav extends Component {
                         </div>
                       </nav>
 
-                       <br/>
-                     
- 
-
-
-             
-                    
-                  
-                
-                
-             
-
-
-                
+                       <br/>                
                 <Route exact path='/Enseignant/Note' >
                     
                     <Note/>

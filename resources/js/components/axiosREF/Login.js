@@ -74,7 +74,7 @@ class Login extends Component {
                                 <input type="text" name="username" className="form-control" value={this.state.username} onChange={this.onChangeValue} />
                                 <strong>Password :</strong>
                                 <input className="form-control " name="password" value={this.state.password} onChange={this.onChangeValue}/>
-                                <Link to='/Enseignant/Note' className="btn btn-success" style={{marginTop:'10px'}} > Login</Link>
+                                <Link dusk="login" to='/Enseignant/Note' className="btn btn-success" style={{marginTop:'10px'}} > Login</Link>
                             </form>
                         </div>
                     </div>

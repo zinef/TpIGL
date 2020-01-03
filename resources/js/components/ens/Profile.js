@@ -23,7 +23,7 @@ color:"white",width:'700px' }}>
         <input type="email" class="form-control"  value="Batata" readonly/>
         </div>
         <div class="form-group col-md-6">
-        <label  >Prenom</label>
+        <label  >Prénom</label>
         <input type="text" class="form-control"   placeholder="sofiane" readonly/>
         </div>
   </div>
@@ -60,15 +60,7 @@ color:"white",width:'700px' }}>
         <input type="text" class="form-control" id="inputAddress2" value='151 Mechaher MED Alger' readonly/>
         </div>
 
-  </div>
-
- 
-  
-
-
-  
-  
-    
+  </div>    
 </div>
         );
     }

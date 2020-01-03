@@ -82,7 +82,15 @@ class ProfesseurController extends Controller
                 $note=Note::where('etudiant_id',$idEtudiant)
                       ->where('module_id',$idModule)
                       ->get();
-                array_push($noteAAfficher,$note[0]);
+                if(!empty($note[0])){
+                    array_push($noteAAfficher,$note[0]);
+                }else{
+                    $note = new Note();
+                    $note->etudiant_id = $idEtudiant;
+                    $note->module_id= $idModule;  
+                    $note->save();
+                    array_push($noteAAfficher,$note);
+                }
             }
 
             foreach($noteAAfficher as $n){  

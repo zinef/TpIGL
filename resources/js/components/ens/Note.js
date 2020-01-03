@@ -18,7 +18,7 @@ export default class Note extends Component {
         this.handleDatachild=this.handleDatachild.bind(this);
         // this.chargerliste=this.chargerlist.bind(this);
     }
- // charger list de grop
+ // charger list de groupe
     chargerliste( ){ 
         
         console.log('charger liste de ');
@@ -97,7 +97,7 @@ export default class Note extends Component {
                     <tr>
                     <th scope="col">Matricule</th>
                     <th scope="col">Nom</th>
-                    <th scope="col">Prenom</th>
+                    <th scope="col">Prénom</th>
                     <th scope="col">
                         <select  id='exam' style={{padding :'0px'}} className='btn btn-secondary dropdown-toggle btn-sm borderAng select mdfont btn-sm'
                         >
@@ -134,7 +134,7 @@ export default class Note extends Component {
                 </tbody>
 
                 </table>
-                <input type="submit"  onClick={
+                <input dusk="sauvgarder-button" type="submit"  onClick={
                      
                     this.envoyernote.bind(this)} id ='submitSelect' 
                 value="Sauvegarder les notes" style={{ margin : '4px'}} className="btn btn-outline-primary btn-sm borderAng"/>
