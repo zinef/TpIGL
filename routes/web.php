@@ -14,7 +14,7 @@ use App\User;
 |
 */
 
-//Auth::routes();
+Auth::routes();
 Route::get('/', function () {
     return view('welcomeHichem'); 
 });
@@ -23,9 +23,9 @@ Route::post('/envoyerNote','ProfesseurController@affectationDesNotes')->name('Af
 Route::get('/informations/{id}','ProfesseurController@affichageInfos')->name('informations');
 
 //Anciennes routes
-Route:: get ('/saisirnotes/{id}',function($id){
+/*Route:: get ('/saisirnotes/{id}',function($id){
 return view('SaisirNotes',['id' => $id]) ;
-});
+});*/
 //Route::get('/home', 'HomeController@index')->name('home');
 
 
